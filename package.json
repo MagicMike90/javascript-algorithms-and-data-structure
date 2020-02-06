@@ -15,5 +15,15 @@
   "bugs": {
     "url": "https://github.com/MagicMike90/javascript-algorithms-and-data-structure/issues"
   },
-  "homepage": "https://github.com/MagicMike90/javascript-algorithms-and-data-structure#readme"
+  "homepage": "https://github.com/MagicMike90/javascript-algorithms-and-data-structure#readme",
+  "devDependencies": {
+    "ts-node": "^8.6.2"
+  },
+  "dependencies": {
+    "@types/node": "^13.7.0",
+    "jest": "^25.1.0",
+    "ts-jest": "^25.2.0",
+    "tslint": "^6.0.0",
+    "typescript": "^3.7.5"
+  }
 }

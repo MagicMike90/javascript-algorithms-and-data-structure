@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "lib": ["es2017"],
+        "target": "es2017", //default is es5
+        "module": "commonjs", //CommonJs style module in output
+        "outDir": "dist", //change the output directory
+        "baseUrl": ".",
+        "paths": {
+            "*": ["node_modules/*", "api/*"]
+        },
+        "types": ["node", "lodash", "express", "mocha"], //If types is specified, only packages listed will be included. For instance
+        "resolveJsonModule": true, //to import out json database
+        "noUnusedLocals": false /* Report errors on unused locals. */,
+        "noUnusedParameters": false /* Report errors on unused parameters. */,
+        "noImplicitReturns": true /* Report error when not all code paths in function return a value. */,
+        "noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
+
+        /* Debugging Options */
+        "traceResolution": false /* Report module resolution log messages. */,
+        "listEmittedFiles": false /* Print names of generated files part of the compilation. */,
+        "listFiles": false /* Print names of files part of the compilation. */,
+        "pretty": true /* Stylize errors and messages using color and context. */
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules", "test/*.spec.ts"]
+}
