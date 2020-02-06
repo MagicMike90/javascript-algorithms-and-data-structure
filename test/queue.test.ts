@@ -1,4 +1,4 @@
-import { Queue } from '../../src/queue/queue';
+import { Queue } from '../src/queue/queue';
 
 describe('queue', () => {
   const max = 5;
