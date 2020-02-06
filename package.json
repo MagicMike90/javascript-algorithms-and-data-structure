@@ -1,0 +1,19 @@
+{
+  "name": "javascript-algorithms-and-data-structure",
+  "version": "1.0.0",
+  "description": "Demonstrate how to use Data Structure and Algorithms in TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MagicMike90/javascript-algorithms-and-data-structure.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MagicMike90/javascript-algorithms-and-data-structure/issues"
+  },
+  "homepage": "https://github.com/MagicMike90/javascript-algorithms-and-data-structure#readme"
+}
