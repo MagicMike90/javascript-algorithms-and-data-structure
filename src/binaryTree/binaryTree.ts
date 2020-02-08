@@ -3,8 +3,14 @@ import { Node } from './node';
 export class BinaryTree<T> {
   private root: Node<T>;
 
+  constructor() {
+    this.root = null;
+  }
   public rootNode(): Node<T> {
     return this.root;
+  }
+  isEmpty() {
+    return this.root === null;
   }
   public insert(value: T) {
     const newNode = new Node(value);
@@ -61,6 +67,26 @@ export class BinaryTree<T> {
     }
   }
 
+  search(value: T): Node<T> {
+    let current = this.root;
+
+    while (current.value !== value) {
+      if (current) {
+        if (current.value > value) {
+          current = current.left;
+        } else {
+          current = current.right;
+        }
+
+        //not found
+        if (current === null) {
+          return null;
+        }
+      }
+    }
+
+    return current;
+  }
   //Searches for a node with a minimum value starting from node
   // In binary tree, minimum node is always in the left branch
   findMinNode(node: Node<T>) {

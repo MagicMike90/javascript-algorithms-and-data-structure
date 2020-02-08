@@ -7,7 +7,7 @@ describe('linked list', () => {
     expect(list.isEmpty()).toBe(true);
   });
 
-  test(`insertFirst and getFirst return "hello"`, () => {
+  test('insertFirst and getFirst return "hello"', () => {
     list.insertFirst('hello');
 
     const item = list.getFirst();
@@ -16,7 +16,7 @@ describe('linked list', () => {
     // list.listContents();
   });
 
-  test(`insertFirst again with value "good-bye" and getFirst to return "good-bye"`, () => {
+  test('insertFirst again with value "good-bye" and getFirst to return "good-bye"', () => {
     list.insertFirst('good-bye');
 
     const item = list.getFirst();
@@ -25,15 +25,15 @@ describe('linked list', () => {
     // list.listContents();
   });
 
-  test(`contains "hello"`, () => {
+  test('contains "hello"', () => {
     expect(list.contains('hello')).toBe(true);
   });
 
-  test(`does not contain "hola"`, () => {
+  test('does not contain "hola"', () => {
     expect(list.contains('hola')).toBe(false);
   });
 
-  test(`has node with "hello" removed`, () => {
+  test('has node with "hello" removed', () => {
     const item = list.remove('hello');
 
     expect(item).toEqual('hello');
@@ -41,7 +41,7 @@ describe('linked list', () => {
     // list.listContents();
   });
 
-  test(`has node with "good-bye" removed and is left empty`, () => {
+  test('has node with "good-bye" removed and is left empty', () => {
     expect(list.isEmpty()).toBe(false);
     const item = list.remove('good-bye');
 
@@ -57,7 +57,7 @@ describe('linked list', () => {
     }).toThrowError();
   });
 
-  test(`removeFirst removes element with value "C" after insertFirst "A", "B", "C"`, () => {
+  test('removeFirst removes element with value "C" after insertFirst "A", "B", "C"', () => {
     list.insertFirst('A');
     list.insertFirst('B');
     list.insertFirst('C');
@@ -65,14 +65,14 @@ describe('linked list', () => {
     expect(list.removeFirst()).toBe('C');
   });
 
-  test(`removeFirst remaining items until list is empty, returning "B", "A"`, () => {
+  test('removeFirst remaining items until list is empty, returning "B", "A"', () => {
     expect(list.isEmpty()).toBe(false);
     expect(list.removeFirst()).toBe('B');
     expect(list.removeFirst()).toBe('A');
     expect(list.isEmpty()).toBe(true);
   });
 
-  test(`insertLast("A", "B", "C"), removeFirst() x 3 returns "A", "B", "C"`, () => {
+  test('insertLast("A", "B", "C"), removeFirst() x 3 returns "A", "B", "C"', () => {
     expect(list.isEmpty()).toBe(true);
     list.insertLast('A');
     list.insertLast('B');
@@ -85,18 +85,18 @@ describe('linked list', () => {
     expect(list.isEmpty()).toBe(true);
   });
 
-  test(`throw an error when calling remove("apple") on empty list`, () => {
+  test('throw an error when calling remove("apple") on empty list', () => {
     expect(() => {
       list.remove('apple');
     }).toThrowError();
   });
 
-  test(`return null when calling remove("apple") on non-empty list`, () => {
+  test('return null when calling remove("apple") on non-empty list', () => {
     list.insertFirst('banana');
     expect(list.remove('apple')).toBeNull();
   });
 
-  test(`return "apple" when calling remove("apple") on non-empty list containing "apple"`, () => {
+  test('return "apple" when calling remove("apple") on non-empty list containing "apple"', () => {
     list.insertFirst('apple');
     expect(list.remove('apple')).toBe('apple');
   });
