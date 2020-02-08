@@ -37,6 +37,11 @@ describe('linked list', () => {
     expect(node).toBeDefined();
   });
 
+  it('should return size of 7', () => {
+    const rootNode = binaryTree.rootNode();
+    expect(binaryTree.size(rootNode)).toBe(7);
+  });
+
   it('should not find the node', () => {
     const node = binaryTree.search(55);
     expect(node).toBeNull();
@@ -51,7 +56,9 @@ describe('linked list', () => {
   it('should delete the correct node', () => {
     const rootNode = binaryTree.rootNode();
     expect(rootNode.value).toBe(20);
+
     binaryTree.remove(20);
     expect(rootNode.value).toBe(30);
+    expect(binaryTree.size(rootNode)).toBe(6);
   });
 });

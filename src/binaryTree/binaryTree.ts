@@ -66,6 +66,13 @@ export class BinaryTree<T> {
       else this.insertNodeRecur(node.right, newNode);
     }
   }
+  size(node: Node<T>) {
+    if (node == null) {
+      return 0;
+    }
+
+    return this.size(node.left) + 1 + this.size(node.right);
+  }
 
   search(value: T): Node<T> {
     let current = this.root;
