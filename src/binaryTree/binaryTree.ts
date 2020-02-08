@@ -105,7 +105,7 @@ export class BinaryTree<T> {
       }
 
       // Deleting node with two children
-      // minumum node of the rigt subtree
+      // minimum node of the right subtree
       // is stored in aux
       const aux = this.findMinNode(node.right);
       node.value = aux.value;
