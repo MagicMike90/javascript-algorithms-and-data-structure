@@ -3,6 +3,9 @@ import { Node } from './node';
 export class BinaryTree<T> {
   private root: Node<T>;
 
+  public rootNode(): Node<T> {
+    return this.root;
+  }
   public insert(value: T) {
     const newNode = new Node(value);
 
@@ -15,23 +18,23 @@ export class BinaryTree<T> {
   }
   public insertNodeLoop(newNode: Node<T>) {
     // loop traverse until
-    let currentRoot = this.root;
+    let currentNode = this.root;
     while (true) {
-      if (currentRoot.value > newNode.value) {
+      if (currentNode.value > newNode.value) {
         // let's increment if it's not a null and insert if it is a null
-        if (currentRoot.left !== null) {
-          currentRoot = currentRoot.left;
+        if (currentNode.left !== null) {
+          currentNode = currentNode.left;
         } else {
-          currentRoot.left = newNode;
+          currentNode.left = newNode;
           break;
         }
-      } else if (currentRoot.value < newNode.value) {
+      } else if (currentNode.value < newNode.value) {
         // if bigger than current, put it on the right
         // let's increment if it's not a null and insert if it is a null
-        if (currentRoot.right !== null) {
-          currentRoot = currentRoot.right;
+        if (currentNode.right !== null) {
+          currentNode = currentNode.right;
         } else {
-          currentRoot.right = newNode;
+          currentNode.right = newNode;
           break;
         }
       } else {
@@ -58,6 +61,8 @@ export class BinaryTree<T> {
     }
   }
 
+  //Searches for a node with a minimum value starting from node
+  // In binary tree, minimum node is always in the left branch
   findMinNode(node: Node<T>) {
     // if left of a node is null
     // then it must be minimum node
@@ -112,6 +117,29 @@ export class BinaryTree<T> {
 
       node.right = this.removeNode(node.right, aux.value);
       return node;
+    }
+  }
+
+  inOrderTraverse(node: Node<T>) {
+    if (node !== null) {
+      this.inOrderTraverse(node.left);
+      console.log(node.value);
+      this.inOrderTraverse(node.right);
+    }
+  }
+
+  preOrderTraverse(node: Node<T>) {
+    if (node !== null) {
+      console.log(node.value);
+      this.preOrderTraverse(node.left);
+      this.preOrderTraverse(node.right);
+    }
+  }
+  postOrderTraverse(node: Node<T>) {
+    if (node !== null) {
+      this.postOrderTraverse(node.left);
+      this.postOrderTraverse(node.right);
+      console.log(node.value);
     }
   }
 }
