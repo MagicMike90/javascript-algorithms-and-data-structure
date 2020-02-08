@@ -41,20 +41,77 @@ export class BinaryTree<T> {
     }
   }
   public insertNodeRecur(node: Node<T>, newNode: Node<T>) {
-    // if the data is less than the node
-    // data move left of the tree
+    // if the value is less than the node
+    // value move left of the tree
     if (newNode.value < node.value) {
       // if left is null insert node here
       if (node.left === null) node.left = newNode;
       else this.insertNodeRecur(node.left, newNode);
     }
 
-    // if the data is more than the node
-    // data move right of the tree
+    // if the value is more than the node
+    // value move right of the tree
     else {
       // if right is null insert node here
       if (node.right === null) node.right = newNode;
       else this.insertNodeRecur(node.right, newNode);
+    }
+  }
+
+  findMinNode(node: Node<T>) {
+    // if left of a node is null
+    // then it must be minimum node
+    if (node.left === null) return node;
+    else return this.findMinNode(node.left);
+  }
+  remove(value: T) {
+    this.root = this.removeNode(this.root, value);
+  }
+
+  removeNode(node: Node<T>, value: T) {
+    // if the root is null then tree is
+    // empty
+    if (node === null) return null;
+    // if value to be delete is less than
+    // roots value then move to left subtree
+    else if (value < node.value) {
+      node.left = this.removeNode(node.left, value);
+      return node;
+    }
+
+    // if value to be delete is greater than
+    // roots value then move to right subtree
+    else if (value > node.value) {
+      node.right = this.removeNode(node.right, value);
+      return node;
+    }
+
+    // if value is similar to the root's value
+    // then delete this node
+    else {
+      // deleting node with no children
+      if (node.left === null && node.right === null) {
+        node = null;
+        return node;
+      }
+
+      // deleting node with one children
+      if (node.left === null) {
+        node = node.right;
+        return node;
+      } else if (node.right === null) {
+        node = node.left;
+        return node;
+      }
+
+      // Deleting node with two children
+      // minumum node of the rigt subtree
+      // is stored in aux
+      const aux = this.findMinNode(node.right);
+      node.value = aux.value;
+
+      node.right = this.removeNode(node.right, aux.value);
+      return node;
     }
   }
 }
