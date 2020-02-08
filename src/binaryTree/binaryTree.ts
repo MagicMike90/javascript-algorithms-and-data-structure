@@ -71,6 +71,7 @@ export class BinaryTree<T> {
       return 0;
     }
 
+    // add one for root node
     return this.size(node.left) + 1 + this.size(node.right);
   }
 
