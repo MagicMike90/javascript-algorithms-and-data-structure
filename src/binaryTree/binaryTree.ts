@@ -79,17 +79,15 @@ export class BinaryTree<T> {
     let current = this.root;
 
     while (current.value !== value) {
-      if (current) {
-        if (current.value > value) {
-          current = current.left;
-        } else {
-          current = current.right;
-        }
+      if (current.value > value) {
+        current = current.left;
+      } else {
+        current = current.right;
+      }
 
-        //not found
-        if (current === null) {
-          return null;
-        }
+      //not found
+      if (current === null) {
+        return null;
       }
     }
 
@@ -174,6 +172,14 @@ export class BinaryTree<T> {
       this.postOrderTraverse(node.left);
       this.postOrderTraverse(node.right);
       console.log(node.value);
+    }
+  }
+  printLevel(node: Node<T>) {
+    const queue = [this.root];
+    if (!this.root) return;
+
+    while (queue.length) {
+      node;
     }
   }
 }
