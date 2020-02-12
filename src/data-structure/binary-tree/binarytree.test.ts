@@ -1,4 +1,4 @@
-import { BinaryTree } from '../src/binaryTree/binaryTree';
+import { BinaryTree } from './binaryTree';
 
 describe('linked list', () => {
   const binaryTree = new BinaryTree<number>();

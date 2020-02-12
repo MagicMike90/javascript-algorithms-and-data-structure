@@ -1,4 +1,4 @@
-import { LinkedList } from '../src/linkedList/linkedList';
+import { LinkedList } from './linkedList';
 
 describe('linked list', () => {
   const list = new LinkedList<string>();
