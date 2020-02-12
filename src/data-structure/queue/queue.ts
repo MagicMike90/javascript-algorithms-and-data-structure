@@ -20,7 +20,7 @@ export class Queue<T> {
 
   public enqueue(item) {
     if (this.isFull()) {
-      throw new Error("Queue overflow");
+      throw new Error('Queue overflow');
     } else {
       this.queue[this.length++] = item; // post-increment adds 1 to length after insertion
     }
@@ -28,7 +28,7 @@ export class Queue<T> {
 
   public dequeue() {
     if (this.isEmpty()) {
-      throw new Error("Queue underflow");
+      throw new Error('Queue underflow');
     }
 
     const item = this.queue[0];
@@ -43,13 +43,13 @@ export class Queue<T> {
 
   public peek() {
     if (this.isEmpty()) {
-      throw new Error("Queue is empty");
+      throw new Error('Queue is empty');
     }
     return this.queue[0];
   }
 
   public queueContents(): void {
-    console.log("Queue Contents");
+    console.log('Queue Contents');
     for (let i = 0; i < this.length; ++i) {
       console.log(`queue[${i}]: ${this.queue[i]}`);
     }
