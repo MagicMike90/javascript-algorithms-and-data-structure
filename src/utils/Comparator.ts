@@ -1,4 +1,4 @@
-export default class Comparator {
+export default class Comparator<T> {
   compare: any;
   /**
    * @param {function(a: *, b: *)} [compareFunction] - It may be custom compare function that, let's
