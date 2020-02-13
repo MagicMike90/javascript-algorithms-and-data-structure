@@ -8,7 +8,7 @@ describe('linked list', () => {
   });
 
   test('insertFirst and getFirst return "hello"', () => {
-    list.insertFirst('hello');
+    list.insert('hello');
 
     const item = list.getFirst();
     expect(item).toEqual('hello');
@@ -17,7 +17,7 @@ describe('linked list', () => {
   });
 
   test('insertFirst again with value "good-bye" and getFirst to return "good-bye"', () => {
-    list.insertFirst('good-bye');
+    list.insert('good-bye');
 
     const item = list.getFirst();
     expect(item).toEqual('good-bye');
@@ -58,9 +58,9 @@ describe('linked list', () => {
   });
 
   test('removeFirst removes element with value "C" after insertFirst "A", "B", "C"', () => {
-    list.insertFirst('A');
-    list.insertFirst('B');
-    list.insertFirst('C');
+    list.insert('A');
+    list.insert('B');
+    list.insert('C');
 
     expect(list.removeFirst()).toBe('C');
   });
@@ -92,12 +92,12 @@ describe('linked list', () => {
   });
 
   test('return null when calling remove("apple") on non-empty list', () => {
-    list.insertFirst('banana');
+    list.insert('banana');
     expect(list.remove('apple')).toBeNull();
   });
 
   test('return "apple" when calling remove("apple") on non-empty list containing "apple"', () => {
-    list.insertFirst('apple');
+    list.insert('apple');
     expect(list.remove('apple')).toBe('apple');
   });
 });

@@ -14,7 +14,7 @@ export class LinkedList<T> {
     return this.head.next === this.tail;
   }
 
-  public insertFirst(item: T): void {
+  public insert(item: T): void {
     // Encapsulate our item into a Node object
     const newNode = new Node<T>(item);
 
@@ -59,7 +59,6 @@ export class LinkedList<T> {
       throw new Error('List is empty');
     }
 
-    // rv = retval or return value
     let rv: Node<T> | null = null;
 
     // cur = current
@@ -84,7 +83,7 @@ export class LinkedList<T> {
       throw new Error('List is empty');
     }
 
-    let rv: boolean = false;
+    let rv = false;
     let cur: Node<T> | null = this.head;
 
     // Traverse the list in search of a matching item
@@ -115,4 +114,14 @@ export class LinkedList<T> {
       cur = cur.next;
     }
   }
+
+  public toArray = (): T[] => {
+    const result: T[] = [];
+    let node = this.head;
+    while (node) {
+      result.push(node.item);
+      node = node.next;
+    }
+    return result;
+  };
 }
