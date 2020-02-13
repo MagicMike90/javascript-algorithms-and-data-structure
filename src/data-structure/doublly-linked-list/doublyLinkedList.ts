@@ -1,12 +1,11 @@
 import { Node } from './node';
 
-export default class DoublyLinkedList {
+export class DoublyLinkedList {
   head: Node;
   tail: Node;
 
   constructor() {
     this.head = null;
-
     this.tail = null;
   }
 
@@ -121,7 +120,7 @@ export default class DoublyLinkedList {
    * @param {function} [findParams.callback]
    * @return {Node}
    */
-  find({ value = undefined, callback = undefined }) {
+  find(value = null) {
     if (!this.head) {
       return null;
     }
@@ -129,13 +128,8 @@ export default class DoublyLinkedList {
     let currentNode = this.head;
 
     while (currentNode) {
-      // If callback is specified then try to find node by callback.
-      if (callback && callback(currentNode.value)) {
-        return currentNode;
-      }
-
       // If value is specified then try to compare by value..
-      if (value !== undefined && currentNode.value === value) {
+      if (value !== null && currentNode.value === value) {
         return currentNode;
       }
 
@@ -222,7 +216,7 @@ export default class DoublyLinkedList {
    * @param {function} [callback]
    * @return {string}
    */
-  toString(callback) {
+  toString(callback = null) {
     return this.toArray()
       .map(node => node.toString(callback))
       .toString();
