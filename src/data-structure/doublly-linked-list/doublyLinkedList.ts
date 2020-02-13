@@ -1,8 +1,8 @@
 import { Node } from './node';
 
 export default class DoublyLinkedList {
-  head: Node<T>;
-  tail: Node<T>;
+  head: Node;
+  tail: Node;
 
   constructor() {
     this.head = null;
