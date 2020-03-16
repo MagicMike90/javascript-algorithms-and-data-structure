@@ -72,47 +72,47 @@ export class NArrayTree<T> {
     return null;
   }
 
-  _preOrder = function(node, fn) {
+  _preOrder(node: Node<T>, callback) {
     if (node) {
-      if (fn) {
-        fn(node);
+      if (callback) {
+        callback(node);
       }
       for (let i = 0; i < node.children.length; i++) {
-        this._preOrder(node.children[i], fn);
+        this._preOrder(node.children[i], callback);
       }
     }
-  };
-  _postOrder = function(node, fn) {
+  }
+  _postOrder(node: Node<T>, callback) {
     if (node) {
       for (let i = 0; i < node.children.length; i++) {
-        this._postOrder(node.children[i], fn);
+        this._postOrder(node.children[i], callback);
       }
-      if (fn) {
-        fn(node);
+      if (callback) {
+        callback(node);
       }
     }
-  };
-  traverseDFS = function(fn, method) {
+  }
+  traverseDFS(callback, method) {
     const current = this.root;
     if (method) {
-      this['_' + method](current, fn);
+      this['_' + method](current, callback);
     } else {
-      this._preOrder(current, fn);
+      this._preOrder(current, callback);
     }
-  };
-  traverseBFS = function(fn) {
+  }
+  traverseBFS(callback) {
     const queue = [this.root];
     while (queue.length) {
       const node = queue.shift();
-      if (fn) {
-        fn(node);
+      if (callback) {
+        callback(node);
       }
       for (let i = 0; i < node.children.length; i++) {
         queue.push(node.children[i]);
       }
     }
-  };
-  print = function() {
+  }
+  print() {
     if (!this.root) {
       return console.log('No root node found');
     }
@@ -130,8 +130,8 @@ export class NArrayTree<T> {
       }
     }
     console.log(string.slice(0, -2).trim());
-  };
-  printByLevel = function() {
+  }
+  printByLevel() {
     if (!this.root) {
       return console.log('No root node found');
     }
@@ -149,5 +149,5 @@ export class NArrayTree<T> {
       }
     }
     console.log(string.trim());
-  };
+  }
 }
