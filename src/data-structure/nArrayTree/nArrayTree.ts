@@ -2,10 +2,10 @@ export class Node<T> {
   public data: T | null;
   public children: Array<Node<T>>;
   public parent: Node<T>;
-  public level: number;
   public constructor(value: T | null = null) {
     this.data = value;
-    this.level = null;
+    this.parent = null;
+    this.children = [];
   }
 }
 
