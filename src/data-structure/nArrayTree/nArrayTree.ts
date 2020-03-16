@@ -13,6 +13,8 @@ export enum DfsOrder {
   postOrder = '_postOrder'
 }
 
+export type traverseCallback<T> = (err: Error, val: Node<T>) => void;
+
 export class NArrayTree<T> {
   private root: Node<T>;
 
@@ -76,36 +78,36 @@ export class NArrayTree<T> {
     return null;
   }
 
-  _preOrder(node: Node<T>, callback) {
+  _preOrder(node: Node<T>, callback: traverseCallback<T>) {
     if (node) {
       if (callback) {
-        callback(node);
+        callback(null, node);
       }
       for (let i = 0; i < node.children.length; i++) {
         this._preOrder(node.children[i], callback);
       }
     }
   }
-  _postOrder(node: Node<T>, callback) {
+  _postOrder(node: Node<T>, callback: traverseCallback<T>) {
     if (node) {
       for (let i = 0; i < node.children.length; i++) {
         this._postOrder(node.children[i], callback);
       }
       if (callback) {
-        callback(node);
+        callback(null, node);
       }
     }
   }
-  traverseDFS(callback, method: DfsOrder = DfsOrder.preOrder) {
+  traverseDFS(callback: traverseCallback<T>, method: DfsOrder = DfsOrder.preOrder) {
     const current = this.root;
     this[method](current, callback);
   }
-  traverseBFS(callback) {
+  traverseBFS(callback: traverseCallback<T>) {
     const queue = [this.root];
     while (queue.length) {
       const node = queue.shift();
       if (callback) {
-        callback(node);
+        callback(null, node);
       }
       for (let i = 0; i < node.children.length; i++) {
         queue.push(node.children[i]);
