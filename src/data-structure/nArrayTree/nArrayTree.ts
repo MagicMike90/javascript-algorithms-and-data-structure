@@ -120,18 +120,24 @@ export class NArrayTree<T> {
     }
     const newline = new Node('|');
     const queue = [this.root, newline];
-    let string = '';
+    let output = '';
     while (queue.length) {
       const node = queue.shift();
-      string += node.data.toString() + ' ';
+
+      for (const child of node.children) {
+        queue.push(child);
+      }
+      if (!queue.length) break;
+
+      output += node.data.toString() + ' ';
+
+      // if there is more thing to be output
       if (node === newline && queue.length) {
         queue.push(newline);
       }
-      for (let i = 0; i < node.children.length; i++) {
-        queue.push(node.children[i]);
-      }
     }
-    console.log(string.slice(0, -2).trim());
+    console.log(output.trim());
+    return output.trim();
   }
   printByLevel() {
     if (!this.root) {
@@ -139,10 +145,10 @@ export class NArrayTree<T> {
     }
     const newline = new Node('\n');
     const queue = [this.root, newline];
-    let string = '';
+    let output = '';
     while (queue.length) {
       const node = queue.shift();
-      string += node.data.toString() + (node.data !== '\n' ? ' ' : '');
+      output += node.data.toString() + (node.data !== '\n' ? ' ' : '');
       if (node === newline && queue.length) {
         queue.push(newline);
       }
@@ -150,6 +156,6 @@ export class NArrayTree<T> {
         queue.push(node.children[i]);
       }
     }
-    console.log(string.trim());
+    console.log(output.trim());
   }
 }
