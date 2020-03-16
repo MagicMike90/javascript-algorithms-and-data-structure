@@ -4,7 +4,8 @@
   "description": "Demonstrate how to use Data Structure and Algorithms in TypeScript",
   "main": "index.js",
   "scripts": {
-    "binaryTree": "ts-node src/binaryTree/main.ts",
+    "binaryTree": "ts-node src/data-structure/binaryTree/main.ts",
+    "nArrayTree": "ts-node src/data-structure/nArrayTree/main.ts",
     "test": "jest --watch"
   },
   "repository": {
