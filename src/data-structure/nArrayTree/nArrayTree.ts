@@ -8,6 +8,10 @@ export class Node<T> {
     this.children = [];
   }
 }
+export enum DfsOrder {
+  preOrder = '_preOrder',
+  postOrder = '_postOrder'
+}
 
 export class NArrayTree<T> {
   private root: Node<T>;
@@ -92,13 +96,9 @@ export class NArrayTree<T> {
       }
     }
   }
-  traverseDFS(callback, method) {
+  traverseDFS(callback, method: DfsOrder = DfsOrder.preOrder) {
     const current = this.root;
-    if (method) {
-      this['_' + method](current, callback);
-    } else {
-      this._preOrder(current, callback);
-    }
+    this[method](current, callback);
   }
   traverseBFS(callback) {
     const queue = [this.root];

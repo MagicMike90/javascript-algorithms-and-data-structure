@@ -1,4 +1,4 @@
-import { NArrayTree } from './nArrayTree';
+import { NArrayTree, DfsOrder } from './nArrayTree';
 
 const tree = new NArrayTree<string>();
 tree.add('ceo');
@@ -20,11 +20,11 @@ tree.traverseBFS(function(node) {
 console.log('--- DFS preOrder');
 tree.traverseDFS(function(node) {
   console.log(node.data);
-}, 'preOrder'); // => ceo cto dev1 dev2 dev3 cfo accountant cmo
+}, DfsOrder.preOrder); // => ceo cto dev1 dev2 dev3 cfo accountant cmo
 console.log('--- DFS postOrder');
 tree.traverseDFS(function(node) {
   console.log(node.data);
-}, 'postOrder'); // => dev1 dev2 dev3 cto accountant cfo cmo ceo
+}, DfsOrder.postOrder); // => dev1 dev2 dev3 cto accountant cfo cmo ceo
 tree.remove('cmo');
 tree.print(); // => ceo | cto cfo | dev1 dev2 dev3 accountant
 tree.remove('cfo');
