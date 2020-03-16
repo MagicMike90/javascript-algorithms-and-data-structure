@@ -1,7 +1,7 @@
 export class Node<T> {
   public data: T | null;
   public children: Array<Node<T>>;
-  public parent: Node<T>;
+  public parent: T;
   public constructor(value: T | null = null) {
     this.data = value;
     this.parent = null;
@@ -36,6 +36,7 @@ export class NArrayTree<T> {
     } else {
       const parent = toNodeData ? this.findBFS(toNodeData) : null;
       if (parent) {
+        newNode.parent = toNodeData;
         parent.children.push(newNode);
       } else {
         throw new Error('Cannot find parent node');
