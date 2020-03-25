@@ -1,26 +1,30 @@
 export class MergeSort {
   merge(left: number[], right: number[]): number[] {
-    const output: number[] = [];
+    const mergedArray: number[] = [];
     let lIndex = 0;
     let rIndex = 0;
     while (lIndex + rIndex < left.length + right.length) {
       const lItem = left[lIndex];
       const rItem = right[rIndex];
+
+      // In JavaScript, the only values in JavaScript that loosely equal
+      // to null is undefined
       if (lItem == null) {
-        output.push(rItem);
+        mergedArray.push(rItem);
         rIndex++;
       } else if (rItem == null) {
-        output.push(lItem);
+        mergedArray.push(lItem);
         lIndex++;
       } else if (lItem < rItem) {
-        output.push(lItem);
+        // if left item is less then right item, then push it to the merged array
+        mergedArray.push(lItem);
         lIndex++;
       } else {
-        output.push(rItem);
+        mergedArray.push(rItem);
         rIndex++;
       }
     }
-    return output;
+    return mergedArray;
   }
 
   sort(arr: number[]): number[] {
