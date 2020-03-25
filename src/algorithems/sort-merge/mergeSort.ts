@@ -28,6 +28,7 @@ export class MergeSort {
       return arr;
     }
 
+    // divide array into 2
     const middle = Math.floor(arr.length / 2);
     const left = arr.slice(0, middle);
     const right = arr.slice(middle);
